@@ -15,7 +15,7 @@
       </div><br />
     @endif
 
-    <form method="POST" action="{{ url('phones/create') }}">
+    <form method="POST" action="{{ route('phones.store')}}">
         {{ csrf_field() }}
 
         @csrf
@@ -42,13 +42,14 @@
               <input type="text" class="form-control" name="owner"/>
           </div>
           <div class="form-group">
-              <label for="coompany">Compania:</label>
+              <label for="company">Compania:</label>
               <input type="text" class="form-control" name="company"/>
           </div>
-
-            <div>            
-              <a style="margin: 19px;" href="{{ route('phones.create')}}" class="btn btn-primary">Agregar Telefono</a>
-            </div>
+          <div class="form-group">
+              <label for="state">Estado de Pericia:</label>
+              <input type="text" class="form-control" name="state"/>
+          </div>
+          <button type="submit" class="btn btn-primary-outline">Agregar Telefono</button>
 
       </form>
 @endsection

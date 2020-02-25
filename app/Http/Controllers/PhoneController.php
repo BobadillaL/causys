@@ -40,8 +40,25 @@ class PhoneController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        return 'Procesando informacion...';
+        $request->validate([
+            'number'=>'required',
+            'imei'=>'required',
+            'brand'=>'required'
+        ]);
+
+        $phone = new Phone([
+            'brand' => $request->get('brand'),
+            'model' => $request->get('model'),
+            'number' => $request->get('number'),
+            'imei' => $request->get('imei'),
+            'owner' => $request->get('owner'),
+            'company' => $request->get('company'),
+            'state' => $request->get('state')
+            
+        ]);
+
+        $phone->save();
+        return redirect('/phones')->with('success', 'Telefono guardado!');
     }
 
     /**
@@ -64,7 +81,7 @@ class PhoneController extends Controller
     public function edit($id)
     {
         $phone = Phone::find($id);
-        return view('phone.edit', compact('phone'));
+        return view('phones.edit', compact('phone'));
     }
 
     /**

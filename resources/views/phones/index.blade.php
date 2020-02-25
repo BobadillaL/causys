@@ -5,7 +5,10 @@
 @section('content')
 <div class="row">
 <div class="col-sm-12">
-    <h1 class="display-3">Telefonos</h1>    
+    <h1 class="display-3">Telefonos</h1>
+    <div>            
+       <a style="margin: 19px;" href="/phones/create" class="btn btn-primary">Agregar Telefono</a>
+    </div>    
   <table class="table table-striped">
     <thead>
         <tr>
@@ -22,8 +25,8 @@
     <tbody>
         @foreach($phones as $phone)
         <tr>
-            <td>{{$phone->id}}</td>
-            <td>{{$phone->brand}} {{$phone->model}}</td>
+            <td>{{$phone->brand}}</td> 
+            <td>{{$phone->model}}</td>
             <td>{{$phone->number}}</td>
             <td>{{$phone->imei}}</td>
             <td>{{$phone->owner}}</td>
