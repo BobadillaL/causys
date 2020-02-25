@@ -18,6 +18,7 @@ class PhoneSeeder extends Seeder
             'number' => 2804333410,
             'imei' => 35656559585454,
             'owner' => 'Lucas Bobadilla',
+            'company' => 'Movistar',
             'state' => 'Listo',
         ]);
     }

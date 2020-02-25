@@ -1,25 +1,26 @@
 @extends('layout')
 
-@section('title', "Crear telefono")
+@section('title', "Editar telefono")
 
 @section('content')
-    <h1>Crear telefono</h1>
+<div class="row">
+    <div class="col-sm-8 offset-sm-2">
+        <h1 class="display-3">Update a phone</h1>
 
-    @if ($errors->any())
-      <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-      </div><br />
-    @endif
-
-    <form method="POST" action="{{ url('phones/create') }}">
-        {{ csrf_field() }}
-
-        @csrf
-          <div class="form-group">    
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        <br /> 
+        @endif
+        <form method="post" action="{{ route('phone.update', $phone->id) }}">
+            @method('PATCH') 
+            @csrf
+            <div class="form-group">    
               <label for="brand">Marca del telefono:</label>
               <input type="text" class="form-control" name="brand"/>
           </div>
@@ -44,11 +45,9 @@
           <div class="form-group">
               <label for="coompany">Compania:</label>
               <input type="text" class="form-control" name="company"/>
-          </div>
-
-            <div>            
-              <a style="margin: 19px;" href="{{ route('phones.create')}}" class="btn btn-primary">Agregar Telefono</a>
-            </div>
-
-      </form>
+          </div>                         
+                   <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</div>
 @endsection

@@ -5,10 +5,7 @@
 @section('content')
     <h1>Telefono #{{ $phone->id }}</h1>
 
-    <p>Nombre del usuario: {{ $user->name }}</p>
-    <p>Correo electrónico: {{ $user->email }}</p>
+    <p>Numero de telefono: {{ $phone->number }}</p>
+    <p>Propietario: {{ $phone->owner }}</p>
 
-    <p>
-        <a href="{{ route('phones.index') }}">Regresar al listado de usuarios</a>
-    </p>
 @endsection

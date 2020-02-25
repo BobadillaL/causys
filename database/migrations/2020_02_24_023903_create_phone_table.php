@@ -20,6 +20,7 @@ class CreatePhoneTable extends Migration
             $table->bigInteger('number');
             $table->bigInteger('imei')->unique();
             $table->string('owner');
+            $table->string('company');
             $table->string('state');
             $table->rememberToken();
             $table->timestamps();
