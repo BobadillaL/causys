@@ -13,19 +13,22 @@ Proyecto de desarrollo de un sistema para la administracion de causas de caracte
 ## Despliegue
 
 Clonar el proyecto: 
-...
+```
 git clone https://github.com/BobadillaL/causys.git
+```
 
 Ejecutar las migraciones con:
-...
+```
 php artisan migrate
+```
 
 Ejecutar los seeders con:
-...
+```
 php artisan db:seed
+```
 
 Desplegar el servidor con:
-...
+```
 php artisan serve
-
+```
 
