@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/phones', function() {
-    return view('phone');
-});
+Route::get('/phones/new', 'PhoneController@create')->name('phones.create');
+
+Route::post('/phones/create', 'PhoneController@store');
 

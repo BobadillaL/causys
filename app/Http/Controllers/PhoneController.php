@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Phone;
 use Illuminate\Http\Request;
 
 class PhoneController extends Controller
@@ -24,6 +25,7 @@ class PhoneController extends Controller
     public function create()
     {
         //
+        return view('phones.create');
     }
 
     /**
@@ -35,6 +37,7 @@ class PhoneController extends Controller
     public function store(Request $request)
     {
         //
+        return 'Procesando informacion...';
     }
 
     /**
