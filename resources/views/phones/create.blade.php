@@ -3,6 +3,7 @@
 @section('title', "Crear telefono")
 
 @section('content')
+
     <h1>Crear telefono</h1>
 
     @if ($errors->any())

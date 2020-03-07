@@ -3,9 +3,10 @@
 @section('title', "Lista de telefonos")
 
 @section('content')
+
 <div class="row">
 <div class="col-sm-12">
-    <h1 class="display-3">Telefonos</h1>
+    <h1 class="display-3">Lista de Telefonos</h1>
     <div>            
        <a style="margin: 19px;" href="/phones/create" class="btn btn-primary">Agregar Telefono</a>
     </div>    
@@ -46,6 +47,17 @@
         @endforeach
     </tbody>
   </table>
+
+  <div class="form-group">
+            <h2>Select</h2>
+            <select class="form-control">
+                @foreach($phones as $phone)
+                <option>{{$phone->brand}}</option>
+                @endforeach
+            </select>
+        </div>
+
+
 <div>
 </div>
 @endsection
