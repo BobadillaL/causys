@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Phone } from '../interfaces/phone';
+import { PhonesService } from '../services/phones.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -6,10 +9,57 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+  phone: Phone = {
+    brand: null,
+    model: null,
+    number: null,
+    imei: null,
+    owner: null,
+    company: null,
+    state: null
+  };
 
-  constructor() { }
+  id: any;
+  editing: boolean = false;
+  phones: Phone[];
+  constructor(private phonesService: PhonesService, private activateRoute: ActivatedRoute) {
+    this.id = this.activateRoute.snapshot.params['id'];
+    if (this.id){
+      this.editing = true;
+      this.phonesService.get().subscribe((data: Phone[]) => {
+        this.phones = data;
+        this.phone = this.phones.find((m) => {return m.id == this.id});
+        console.log(this.phone);
+      }, (error) => {
+        console.log(error);
+      })
+    } else {
+      this.editing = false;
+    }
+  }
 
   ngOnInit(): void {
+  }
+
+  savePhone() { 
+    if(this.editing) {
+      this.phonesService.put(this.phone).subscribe((data) => {
+        alert('Telefono Actualizado');
+        console.log(data);
+      }, (error) => {
+        console.log(error);
+        alert('Ocurrio un error');
+      });
+    } else{
+      this.phonesService.save(this.phone).subscribe((data) => {
+        alert('Telefono Guardado');
+        console.log(data);
+      }, (error) => {
+        console.log(error);
+        alert('Ocurrio un error');
+      });  
+    }
+    
   }
 
 }

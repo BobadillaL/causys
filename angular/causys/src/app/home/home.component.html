@@ -1,61 +1,30 @@
       <table class="table">
             <thead class="thead-dark">
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Numero</th>
+                <th scope="col">Imei</th>
+                <th scope="col">Propietario</th>
+                <th scope="col">Compania</th>
+                <th scope="col">Estado Pericia</th>
+                <th scope="col">Accion</th>
+                
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
+              <tr *ngFor="let phone of phones">
+                <th>{{phone.brand}}</th>
+                <td>{{phone.model}}</td>
+                <td>{{phone.number}}</td>
+                <td>{{phone.imei}}</td>
+                <td>{{phone.owner}}</td>
+                <td>{{phone.company}}</td>
+                <td>{{phone.state}}</td>
+                <td>
+                  <a class="btn btn-primary btn-sm" routerLink="/form/{{phone.id}}">Ver/Editar</a>
+                  <a class="btn btn-primary btn-danger" (click)="delete(phone.id)">Eliminar</a>
+                </td>
               </tr>
             </tbody>
-          </table>
-          
-          <table class="table">
-            <thead class="thead-light">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
+      </table>

@@ -16,21 +16,9 @@ class PhoneController extends Controller
     {
         $phones = Phone::all();
 
-        $title = 'Listado de telefonos';
-
-        return view('phones.index', compact('title', 'phones'));
+        echo json_encode($phones);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-        return view('phones.create');
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -40,49 +28,21 @@ class PhoneController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'number'=>'required',
-            'imei'=>'required',
-            'brand'=>'required'
-        ]);
+        $phone = new Phone();
 
-        $phone = new Phone([
-            'brand' => $request->get('brand'),
-            'model' => $request->get('model'),
-            'number' => $request->get('number'),
-            'imei' => $request->get('imei'),
-            'owner' => $request->get('owner'),
-            'company' => $request->get('company'),
-            'state' => $request->get('state')
-            
-        ]);
-
+        $phone->brand= $request->input('brand');
+        $phone->model = $request->input('model');
+        $phone->number = $request->input('number');
+        $phone->imei = $request->input('imei');
+        $phone->owner = $request->input('owner');
+        $phone->company = $request->input('company');
+        $phone->state = $request->input('state');
+        
         $phone->save();
-        return redirect('/phones')->with('success', 'Telefono guardado!');
+       
+        echo json_encode($phone);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Phone $phone)
-    {
-        return view('phones.show', compact('phone'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $phone = Phone::find($id);
-        return view('phones.edit', compact('phone'));
-    }
 
     /**
      * Update the specified resource in storage.
@@ -93,11 +53,6 @@ class PhoneController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'number'=>'required',
-            'imei'=>'required'
-        ]);
-
         $phone = Phone::find($id);
         $phone->brand =  $request->get('brand');
         $phone->model = $request->get('model');
@@ -107,7 +62,7 @@ class PhoneController extends Controller
         $phone->company = $request->get('company');
         $phone->save();
 
-        return redirect('/phones')->with('success', 'Phone updated!');
+        echo json_encode($phone);
     }
 
     /**
@@ -121,6 +76,6 @@ class PhoneController extends Controller
         $phone = Phone::find($id);
         $phone->delete();
 
-        return redirect('/phones')->with('success', 'Phone deleted!');
+        echo json_encode($phone);
     }
 }

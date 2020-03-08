@@ -24,7 +24,7 @@ Route::post('/phones/create', 'PhoneController@store');
 Route::get('/phones/{phone}', 'PhoneController@show')
     ->name('phones.show');
 
-    Route::get('/phones', 'PhoneController@index')
+Route::get('/phones', 'PhoneController@index')
     ->name('phones.index');    
 
 
