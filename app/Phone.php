@@ -11,10 +11,11 @@ class Phone extends Model
     protected $fillable = [
         'brand',
         'model',
-        'number',
         'imei',
+        'number',
         'owner',
         'company',
+        'description',
         'state'       
     ];
 

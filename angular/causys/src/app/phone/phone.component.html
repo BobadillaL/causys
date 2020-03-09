@@ -1,0 +1,74 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    .btn {
+      background-color: rgb(8, 197, 118);
+      border: none;
+      color: white;
+      padding: 12px 16px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    
+    .btn1 {
+      background-color: rgb(8, 144, 197);
+      border: none;
+      color: white;
+      padding: 12px 16px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn2 {
+      background-color: rgb(221, 20, 70);
+      border: none;
+      color: white;
+      padding: 12px 16px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* Darker background on mouse-over */
+    .btn:hover {
+      background-color: RoyalBlue;
+    }
+    </style>
+    </head>
+
+<td>
+    <a class="btn btn-success btn-sm" routerLink="/form">Nuevo</a>
+</td>
+<hr>
+<table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Marca</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Imei</th>
+            <th scope="col">Numero</th>
+            <th scope="col">Propietario</th>
+            <th scope="col">Compania</th>
+            <th scope="col">Estado Pericia</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let phone of phones">
+            <th>{{phone.brand}}</th>
+            <td>{{phone.model}}</td>
+            <td>{{phone.imei}}</td>
+            <td>{{phone.number}}</td>
+            <td>{{phone.owner}}</td>
+            <td>{{phone.company}}</td>
+            <td>{{phone.state}}</td>
+            <td>
+              <a class="btn1 btn-primary btn-sm" routerLink="/form/{{phone.id}}"><i class="fa fa-pencil"></i> Ver/Editar</a>
+            </td>
+            <td>
+              <a class="btn2 btn-danger btn-sm" (click)="delete(phone.id)"><i class="fa fa-trash"></i> Eliminar</a>
+            </td>
+          </tr>
+        </tbody>
+  </table>

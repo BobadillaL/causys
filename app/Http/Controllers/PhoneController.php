@@ -32,10 +32,11 @@ class PhoneController extends Controller
 
         $phone->brand= $request->input('brand');
         $phone->model = $request->input('model');
-        $phone->number = $request->input('number');
         $phone->imei = $request->input('imei');
+        $phone->number = $request->input('number');
         $phone->owner = $request->input('owner');
         $phone->company = $request->input('company');
+        $phone->description = $request->input('description');
         $phone->state = $request->input('state');
         
         $phone->save();
@@ -56,10 +57,12 @@ class PhoneController extends Controller
         $phone = Phone::find($id);
         $phone->brand =  $request->get('brand');
         $phone->model = $request->get('model');
-        $phone->number = $request->get('number');
         $phone->imei = $request->get('imei');
+        $phone->number = $request->get('number');
         $phone->owner = $request->get('owner');
         $phone->company = $request->get('company');
+        $phone->description = $request->input('description');
+        $phone->state = $request->input('state');
         $phone->save();
 
         echo json_encode($phone);

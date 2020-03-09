@@ -1,14 +1,15 @@
+
 import { Component, OnInit } from '@angular/core';
 import { PhonesService } from '../services/phones.service';
-import { HttpClient } from '@angular/common/http';
 import { Phone } from '../interfaces/phone';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-phone',
+  templateUrl: './phone.component.html',
+  styleUrls: ['./phone.component.css']
 })
-export class HomeComponent implements OnInit {
+
+export class PhoneComponent implements OnInit {
   phones: Phone[];
   constructor(private phoneService: PhonesService) { 
     this.getPhones() ;

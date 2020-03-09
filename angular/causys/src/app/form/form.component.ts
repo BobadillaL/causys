@@ -12,10 +12,11 @@ export class FormComponent implements OnInit {
   phone: Phone = {
     brand: null,
     model: null,
-    number: null,
     imei: null,
+    number: null,
     owner: null,
     company: null,
+    description: null,
     state: null
   };
 

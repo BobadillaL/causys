@@ -1,37 +1,46 @@
-
-
 <h2>Cargar Telefono</h2>
 <div>
-            <div class="form-group">
-              <label for="brand">Marca</label>
-              <input [(ngModel)]="phone.brand" type="text" class="form-control" id="brand" placeholder="Ingresar Marca">
-            </div>
-            <div class="form-group">
-              <label for="model">Model</label>
-              <input [(ngModel)]="phone.model" type="text" class="form-control" id="model" placeholder="Ingresar Modelo">
-            </div>
-            <div class="form-group">
-              <label for="number">Numero</label>
-              <input [(ngModel)]="phone.number" type="number" class="form-control" id="number" placeholder="Ingresar Numero">
-            </div>
-            <div class="form-group">
-              <label for="imei">Imei</label>
-              <input [(ngModel)]="phone.imei" type="number" class="form-control" id="imei" placeholder="Ingresar Imei">
-            </div>
-            <div class="form-group">
-              <label for="owner">Propietario</label>
-              <input [(ngModel)]="phone.owner" type="text" class="form-control" id="owner" placeholder="Ingresar Propietario">
-            </div>
-            <div class="form-group">
-              <label for="company">Compania</label>
-              <input [(ngModel)]="phone.company" type="text" class="form-control" id="company" placeholder="Ingresar Compania">
-            </div>
-            <div class="form-group">
-              <label for="state">Estado Pericia</label>
-              <input [(ngModel)]="phone.state" type="text" class="form-control" id="state" placeholder="Ingresar Estado de Pericia">
-            </div>
-
-            <button (click)="savePhone()" class="btn btn-primary">Guardar</button>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="brand">Marca</label>
+          <input [(ngModel)]="phone.brand" type="text" class="form-control" id="brand" placeholder="Ingresar Marca">
+       </div>
+      <div class="form-group col-md-6">
+        <label for="model">Model</label>
+        <input [(ngModel)]="phone.model" type="text" class="form-control" id="model" placeholder="Ingresar Modelo">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="imei">Imei</label>
+        <input [(ngModel)]="phone.imei" type="number" class="form-control" id="imei" placeholder="Ingresar Imei">
+      </div>       
+      <div class="form-group col-md-6">
+         <label for="number">Numero</label>
+         <input [(ngModel)]="phone.number" type="number" class="form-control" id="number" placeholder="Ingresar Numero">
+      </div>
+    </div>  
+    <div class="form-row">  
+      <div class="form-group col-md-6">
+        <label for="owner">Propietario</label>
+        <input [(ngModel)]="phone.owner" type="text" class="form-control" id="owner" placeholder="Ingresar Propietario">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="company">Compania</label>
+        <input [(ngModel)]="phone.company" type="text" class="form-control" id="company" placeholder="Ingresar Compania">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="description">Descripcion</label>
+        <input [(ngModel)]="phone.description" type="text" class="form-control" id="description" placeholder="Ingresar descripcion general">
+      </div>
+      <div class="form-group col-md-6">
+          <label for="state">Estado</label>
+          <input [(ngModel)]="phone.state" type="text" class="form-control" id="state" placeholder="Ingresar estado pericial">
+      </div>  
+    </div>
+    <button (click)="savePhone()" class="btn btn-primary">Guardar</button>
 
 </div>
     

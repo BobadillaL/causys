@@ -17,10 +17,11 @@ class CreatePhoneTable extends Migration
             $table->bigIncrements('id');
             $table->string('brand');
             $table->string('model');
-            $table->bigInteger('number');
             $table->bigInteger('imei')->unique();
+            $table->bigInteger('number');
             $table->string('owner');
             $table->string('company');
+            $table->string('description');
             $table->string('state');
             $table->rememberToken();
             $table->timestamps();
